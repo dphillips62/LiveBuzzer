@@ -1,5 +1,6 @@
 // Your web app's Firebase configuration
 var players = document.getElementById("PlayersNames")
+var theBuzzer = "";
 
 firebase.initializeApp({
   apiKey: "AIzaSyBclGO06U5GKNNkqCOkHGQdIWOwQh3DlX4",
@@ -50,6 +51,7 @@ function resetBuzz() {
   .then(function() {
     console.log("Document successfully updated!");
   });
+  document.getElementById('mostRecentBuzz').innerHTML = "Waiting for Buzz"
 }
 
 function QueryString() {
@@ -74,13 +76,34 @@ function QueryString() {
 }
 
 db.collection("webBuzzer").doc(QueryString().id)
-          .onSnapshot(function(doc) {
-          console.log("Current data: ", doc.data());
-          data = doc.data()
+   .onSnapshot(function(doc) {
+      console.log("Current data: ", doc.data());
+      data = doc.data()
+      PlayersNames.value = ""
+          Object.keys(data.people).forEach(function(item){
+            PlayersNames.value = PlayersNames.value + data.people[item] + "\n"
+            if(item == data.mostRecentBuzz){
+              theBuzzer = data.people[item]
+            };
+          })
+      if(data.mostRecentBuzz != 0){
+          Object.keys(data.people).forEach(function(item){
+              if(item == data.mostRecentBuzz){
+                theBuzzer = data.people[item]
+              } 
+          });
+          document.getElementById('mostRecentBuzz').innerHTML = theBuzzer + " was the first to buzz!"
+      } else{
           
-              Object.keys(data.people).forEach(function(item){
-                PlayersNames.value = PlayersNames.value + people.data[item]
+          document.getElementById('mostRecentBuzz').innerHTML = "Waiting for Buzz"
+      };
+  });
 
-              })
-            });
-
+  function closeBuzz(){
+    db.collection("webBuzzer").doc(QueryString().id).delete().then(function() {
+      console.log("Document successfully deleted!");
+    }).catch(function(error) {
+      console.error("Error removing document: ", error);
+  });
+  window.open('index.html')
+  }

@@ -1,4 +1,6 @@
 // Your web app's Firebase configuration
+
+
 firebase.initializeApp({
   apiKey: "AIzaSyBclGO06U5GKNNkqCOkHGQdIWOwQh3DlX4",
   authDomain: "webbuzzer-41885.firebaseapp.com",
@@ -76,6 +78,7 @@ function saveName() {
           .onSnapshot(function(doc) {
           console.log("Current data: ", doc.data());
           data = doc.data()
+        
           if (data.mostRecentBuzz != 0){
             if(data.mostRecentBuzz == nameNumber){
               document.getElementById('mainSection').innerHTML = "<h1>You were the first to buzz!</h1><br>"
@@ -145,3 +148,4 @@ function QueryString() {
   }
   return query_string;
 }
+

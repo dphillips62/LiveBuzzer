@@ -48,7 +48,7 @@ function createRoom() {
 
   var roomName = document.getElementById('createRoom').value
   if (roomName != "") {
-    var roomCode = '12345'//generate5digitCode()
+    var roomCode = generate5digitCode()
     db.collection('webBuzzer').doc(roomCode).set({
         'name': roomName,
         people: { },
