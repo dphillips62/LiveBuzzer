@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Semi+Condensed" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <title>Web Buzzer | Manage Room</title>
+</head>
+<body id="body">
+  <main>
+    <h2 class="title" id="title">Web Buzzer<br>Loading...</h2>
+    <h3 id="instructions" class="instructions"></h3>
+    <hr class="topSep">
+    <br>
+    <h1 id="mostRecentBuzz">Loading...</h1>
+    <br>
+    <button onclick="resetBuzz()" class="pretty">Reset Buzzer</button>
+    <textarea id = "PlayersNames"></textarea>
+  </main>
+  <footer>&copy; 2019 David Phillips</footer>
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-firestore.js"></script>
+<script src="manage.js" charset="utf-8"></script>
+
+</body>
+</html>

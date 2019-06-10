@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Semi+Condensed" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <title>Web Buzzer</title>
+</head>
+
+<body id="body">
+  <main>
+    <h2 class="title">Web Buzzer</h1>
+    <hr class="topSep">
+    <div class="inputSection">
+      <input maxlength="5" class="pretty" type="text" id="joinRoom" placeholder="Type an exsisting room code">
+      <button class="pretty" onclick="joinRoom()">Join Room</button>
+    </div>
+    <hr class="sepline">
+    <div class="inputSection">
+      <input class="pretty" type="text" id="createRoom" placeholder="Type a new room name">
+      <button class="pretty" onclick="createRoom()">Make Room</button>
+    </div>
+  </main>
+  <footer>&copy; 2019 David Phillips</footer>
+  <script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.1.0/firebase-firestore.js"></script>
+<script src="index.js" charset="utf-8"></script>
+</body>
+</html>
+
